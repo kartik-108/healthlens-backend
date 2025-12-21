@@ -1,25 +1,14 @@
 const express = require("express");
 const router = express.Router();
 
-const {
-  signup,
-  login,
-  getProfile
-} = require("../controllers/auth.controller");
-
+const { signup, login, getProfile } = require("../controllers/auth.controller");
 const authMiddleware = require("../middleware/auth.middleware");
 
-// =========================
-// AUTH ROUTES
-// =========================
-
-// SIGNUP
+// PUBLIC ROUTES
 router.post("/signup", signup);
-
-// LOGIN
 router.post("/login", login);
 
-// PROTECTED ROUTE (TEST JWT)
+// PROTECTED ROUTE
 router.get("/profile", authMiddleware, getProfile);
 
 module.exports = router;

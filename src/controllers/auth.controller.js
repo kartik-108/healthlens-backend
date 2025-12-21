@@ -2,7 +2,7 @@ const User = require("../models/user");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-// ================= SIGNUP =================
+// SIGNUP
 exports.signup = async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -18,11 +18,13 @@ exports.signup = async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    await User.create({
+    const user = new User({
       name,
       email,
       password: hashedPassword,
     });
+
+    await user.save();
 
     res.status(201).json({ message: "Signup successful" });
   } catch (error) {
@@ -30,7 +32,7 @@ exports.signup = async (req, res) => {
   }
 };
 
-// ================= LOGIN =================
+// LOGIN
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -55,7 +57,7 @@ exports.login = async (req, res) => {
       { expiresIn: "1d" }
     );
 
-    res.status(200).json({
+    res.json({
       message: "Login successful",
       token,
     });
@@ -64,10 +66,20 @@ exports.login = async (req, res) => {
   }
 };
 
-// ================= PROTECTED =================
+// PROFILE (PROTECTED)
 exports.getProfile = async (req, res) => {
-  res.status(200).json({
-    message: "Protected route accessed",
-    userId: req.userId,
-  });
+  try {
+    const user = await User.findById(req.userId).select("-password");
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.json({
+      message: "Profile fetched successfully",
+      user,
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Server error" });
+  }
 };
