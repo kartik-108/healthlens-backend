@@ -7,18 +7,16 @@ dotenv.config();
 connectDB();
 
 const app = express();
-
-// middleware
 app.use(cors());
 app.use(express.json());
 
-// routes
+// ROUTES
 const authRoutes = require("./src/routes/auth.routes");
 app.use("/api/auth", authRoutes);
 
-// test route
+// TEST ROUTE
 app.get("/", (req, res) => {
-  res.send("HealthLens Backend Running");
+  res.send("HealthLens Backend Running 🚀");
 });
 
 const PORT = process.env.PORT || 5000;
