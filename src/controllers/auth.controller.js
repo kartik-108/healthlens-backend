@@ -23,3 +23,9 @@ module.exports = {
   login,
   profile
 };
+exports.profile = async (req, res) => {
+  res.status(200).json({
+    message: "Profile fetched successfully",
+    user: req.user
+  });
+};
