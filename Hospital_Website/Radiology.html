@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radiology | HealthLens Hospital</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+<!-- Navbar -->
+<nav class="bg-blue-800 shadow-lg sticky top-0 z-50">
+  <div class="container mx-auto flex justify-between items-center py-4 px-6">
+    <a href="index.html" class="text-3xl font-extrabold text-white tracking-wide">
+      Health<span class="text-yellow-400">Lens</span> 🏥
+    </a>
+    <ul class="hidden md:flex space-x-8 text-white font-medium">
+      <li><a href="index.html" class="hover:text-yellow-300 transition">Home</a></li>
+      <li><a href="appointment.html" class="hover:text-yellow-300 transition">Appointment</a></li>
+      <li><a href="my-appointments.html" class="hover:text-yellow-300 transition">My Appointments</a></li>
+      <li><a href="services.html" class="hover:text-yellow-300 transition">Services</a></li>
+      <li><a href="emergency.html" class="hover:text-yellow-300 transition">Emergency</a></li>
+      <li><a href="feedback.html" class="hover:text-yellow-300 transition">Feedback</a></li>
+    </ul>
+    <div class="flex space-x-4">
+      <a href="login.html" class="px-4 py-2 rounded-lg border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-blue-900 font-semibold transition">Login</a>
+      <a href="signup.html" class="px-4 py-2 rounded-lg bg-yellow-400 text-blue-900 font-semibold shadow-md hover:shadow-lg transition">Sign Up</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="bg-blue-700 text-white py-16 text-center">
+  <h1 class="text-4xl md:text-5xl font-bold mb-4">Radiology Department 📸</h1>
+  <p class="text-lg md:text-xl max-w-2xl mx-auto">
+    Advanced imaging services for accurate diagnosis and effective treatment planning.
+  </p>
+</section>
+
+<!-- Radiology Department Overview -->
+<section class="container mx-auto py-12 px-6">
+  <h2 class="text-3xl font-bold mb-6">Radiology Department Overview</h2>
+  <p class="text-gray-700 mb-4">
+    The Radiology Department at HealthLens Hospital specializes in medical imaging to diagnose and monitor various conditions. Our radiologists use advanced imaging techniques to provide accurate, timely, and detailed information to support effective treatment.  
+  </p>
+  <p class="text-gray-700">
+    We integrate state-of-the-art technology including X-ray, MRI, CT scans, ultrasound, and nuclear medicine to ensure precise diagnostics. Our services are crucial for early detection, treatment planning, and monitoring progress.
+  </p>
+</section>
+
+<!-- Department Facilities -->
+<section class="container mx-auto py-12 px-6 bg-gray-50 rounded-lg shadow-md">
+  <h2 class="text-3xl font-bold mb-6">Department Facilities 🏥</h2>
+  <ul class="list-disc ml-6 text-gray-700 space-y-2 mb-4">
+    <li>Digital X-ray imaging for bones and soft tissues.</li>
+    <li>Advanced MRI and CT scan facilities for detailed cross-sectional imaging.</li>
+    <li>Ultrasound and Doppler studies for soft tissue and vascular evaluation.</li>
+    <li>Fluoroscopy and interventional radiology for minimally invasive procedures.</li>
+    <li>Nuclear medicine including PET scans for functional imaging and cancer detection.</li>
+  </ul>
+</section>
+
+<!-- About Radiology Science -->
+<section class="container mx-auto py-12 px-6">
+  <h2 class="text-3xl font-bold mb-6">About Radiology Science 📡</h2>
+  <p class="text-gray-700 mb-4">
+    Radiology is the branch of medicine that uses imaging technologies to diagnose, monitor, and treat diseases. Radiologists interpret images obtained from X-rays, CT scans, MRIs, ultrasounds, and nuclear medicine to provide essential insights. Modern radiology combines precision imaging, digital analysis, and minimally invasive interventional techniques.
+  </p>
+</section>
+
+<!-- Causes / Need for Imaging -->
+<section class="container mx-auto py-12 px-6 bg-gray-50 rounded-lg shadow-md">
+  <h2 class="text-3xl font-bold mb-6">Why Imaging is Needed ⚠️</h2>
+  <p class="text-gray-700 mb-4">
+    Imaging is required for accurate diagnosis, treatment planning, monitoring disease progression, and guiding minimally invasive procedures. Conditions like fractures, tumors, organ diseases, vascular disorders, and prenatal evaluations depend heavily on radiology. Early and precise imaging improves treatment outcomes significantly.
+  </p>
+</section>
+
+<!-- Symptoms and What to Do -->
+<section class="container mx-auto py-12 px-6">
+  <h2 class="text-3xl font-bold mb-6">Symptoms and What to Do 🩺</h2>
+  <p class="text-gray-700 mb-4">
+    Patients may need imaging for unexplained pain, trauma, abnormal lab results, persistent illness, or follow-up after surgery. Radiologists work with referring physicians to ensure correct modality selection, timely diagnosis, and appropriate follow-up.
+  </p>
+</section>
+
+<!-- Treatment / Guidance -->
+<section class="container mx-auto py-12 px-6 bg-gray-50 rounded-lg shadow-md">
+  <h2 class="text-3xl font-bold mb-6">Treatment Guidance 🏥</h2>
+  <p class="text-gray-700 mb-4">
+    Radiology supports treatment but typically does not directly treat conditions. Imaging guides physicians in planning surgery, radiation therapy, interventions, and monitoring therapy response. Interventional radiology can perform minimally invasive procedures such as biopsies, drainage, and vascular interventions.
+  </p>
+</section>
+
+<!-- Book Appointment CTA -->
+<section class="py-12 text-center">
+  <a href="appointment.html?dept=Radiology"
+     class="bg-blue-500 text-white px-6 py-3 rounded-lg font-bold shadow-md hover:shadow-xl transition hover:bg-blue-600 animate-bounce">
+    Book Appointment 📸
+  </a>
+</section>
+
+<!-- Footer -->
+<footer class="bg-blue-800 text-white text-center py-6 mt-10">
+  <p>&copy; 2025 HealthLens Hospital | All Rights Reserved 🏥</p>
+</footer>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const dept = params.get("dept");
+  if(dept){
+    document.getElementById("departmentSelect")?.value = dept;
+  }
+</script>
+
+</body>
+</html>

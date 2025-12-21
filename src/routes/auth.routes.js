@@ -3,13 +3,23 @@ const router = express.Router();
 
 const {
   signup,
-  login
+  login,
+  getProfile
 } = require("../controllers/auth.controller");
 
-// SIGNUP ROUTE
+const authMiddleware = require("../middleware/auth.middleware");
+
+// =========================
+// AUTH ROUTES
+// =========================
+
+// SIGNUP
 router.post("/signup", signup);
 
-// LOGIN ROUTE
+// LOGIN
 router.post("/login", login);
+
+// PROTECTED ROUTE (TEST JWT)
+router.get("/profile", authMiddleware, getProfile);
 
 module.exports = router;

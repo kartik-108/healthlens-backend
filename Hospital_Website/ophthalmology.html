@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ophthalmology | HealthLens Hospital</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+<!-- Navbar -->
+<nav class="bg-yellow-700 shadow-lg sticky top-0 z-50">
+  <div class="container mx-auto flex justify-between items-center py-4 px-6">
+    <a href="index.html" class="text-3xl font-extrabold text-white tracking-wide">
+      Health<span class="text-emerald-400">Lens</span> 👁️
+    </a>
+    <ul class="hidden md:flex space-x-8 text-white font-medium">
+      <li><a href="index.html" class="hover:text-emerald-300 transition">Home</a></li>
+      <li><a href="appointment.html" class="hover:text-emerald-300 transition">Appointment</a></li>
+      <li><a href="my-appointments.html" class="hover:text-emerald-300 transition">My Appointments</a></li>
+      <li><a href="services.html" class="hover:text-emerald-300 transition">Services</a></li>
+      <li><a href="emergency.html" class="hover:text-emerald-300 transition">Emergency</a></li>
+      <li><a href="feedback.html" class="hover:text-emerald-300 transition">Feedback</a></li>
+    </ul>
+    <div class="flex space-x-4">
+      <a href="login.html" class="px-4 py-2 rounded-lg border-2 border-emerald-400 text-emerald-400 hover:bg-emerald-400 hover:text-yellow-900 font-semibold transition">Login</a>
+      <a href="signup.html" class="px-4 py-2 rounded-lg bg-emerald-400 text-yellow-900 font-semibold shadow-md hover:shadow-lg transition">Sign Up</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="bg-orange-600 text-white py-16 text-center">
+  <h1 class="text-4xl md:text-5xl font-bold mb-4">Ophthalmology Department 👁️</h1>
+  <p class="text-lg md:text-xl max-w-2xl mx-auto">
+    Specialized care for eye health and vision — seeing the world clearly with expert ophthalmologists.
+  </p>
+</section>
+
+<!-- Department Overview -->
+<section class="container mx-auto py-12 px-6">
+  <h2 class="text-3xl font-bold mb-6">Ophthalmology Department Overview</h2>
+  <p class="text-gray-700 mb-4">
+    The Ophthalmology Department at HealthLens Hospital focuses on diagnosing, treating, and managing eye and vision disorders. This includes cataracts, glaucoma, refractive errors, retinal diseases, diabetic retinopathy, and age-related macular degeneration.
+  </p>
+  <p class="text-gray-700">
+    We combine advanced diagnostics, surgical expertise, and comprehensive vision care programs to maintain and restore optimal eye health for patients of all ages.
+  </p>
+</section>
+
+<!-- Department Facilities -->
+<section class="container mx-auto py-12 px-6 bg-gray-50 rounded-lg shadow-md">
+  <h2 class="text-3xl font-bold mb-6">Department Facilities 🏥</h2>
+  <ul class="list-disc ml-6 text-gray-700 space-y-2 mb-4">
+    <li>Advanced diagnostic tools including OCT, fundus photography, and visual field analysis.</li>
+    <li>Cataract and refractive surgery suites with modern laser systems.</li>
+    <li>Glaucoma and retinal clinics for specialized care.</li>
+    <li>Pediatric ophthalmology and vision therapy programs.</li>
+    <li>Low vision rehabilitation and corneal transplant facilities.</li>
+  </ul>
+</section>
+
+<!-- About Ophthalmology Science -->
+<section class="container mx-auto py-12 px-6">
+  <h2 class="text-3xl font-bold mb-6">About Ophthalmology Science 👁️</h2>
+  <p class="text-gray-700 mb-4">
+    Ophthalmology is the branch of medicine that deals with the anatomy, physiology, and diseases of the eye. Ophthalmologists diagnose, treat, and prevent eye disorders to ensure healthy vision, proper eye function, and overall quality of life.
+  </p>
+</section>
+
+<!-- Causes of Eye Disorders -->
+<section class="container mx-auto py-12 px-6 bg-gray-50 rounded-lg shadow-md">
+  <h2 class="text-3xl font-bold mb-6">Causes of Eye Disorders ⚠️</h2>
+  <p class="text-gray-700 mb-4">
+    Eye problems may result from aging, genetics, infections, trauma, lifestyle factors, or systemic diseases like diabetes and hypertension. Early detection and treatment are crucial to prevent vision loss.
+  </p>
+</section>
+
+<!-- Symptoms and What to Do -->
+<section class="container mx-auto py-12 px-6">
+  <h2 class="text-3xl font-bold mb-6">Symptoms and What to Do 🩺</h2>
+  <p class="text-gray-700 mb-4">
+    Symptoms include blurred vision, eye pain, redness, floaters, flashes of light, and sudden vision changes. Patients experiencing these signs should consult an ophthalmologist promptly for proper evaluation and treatment.
+  </p>
+</section>
+
+<!-- Treatment -->
+<section class="container mx-auto py-12 px-6 bg-gray-50 rounded-lg shadow-md">
+  <h2 class="text-3xl font-bold mb-6">Treatment 🏥</h2>
+  <p class="text-gray-700 mb-4">
+    Treatments include prescription glasses or contact lenses, medications, laser therapy, cataract and refractive surgeries, retinal procedures, glaucoma management, and comprehensive follow-up care to ensure healthy vision.
+  </p>
+</section>
+
+<!-- Book Appointment CTA -->
+<section class="py-12 text-center">
+  <a href="appointment.html?dept=Ophthalmology"
+     class="bg-yellow-500 text-white px-6 py-3 rounded-lg font-bold shadow-md hover:shadow-xl transition hover:bg-yellow-600 animate-bounce">
+    Book Appointment 👁️
+  </a>
+</section>
+
+<!-- Footer -->
+<footer class="bg-yellow-700 text-white text-center py-6 mt-10">
+  <p>&copy; 2025 HealthLens Hospital | All Rights Reserved 🏥</p>
+</footer>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const dept = params.get("dept");
+  if(dept){
+    document.getElementById("departmentSelect")?.value = dept;
+  }
+</script>
+
+</body>
+</html>

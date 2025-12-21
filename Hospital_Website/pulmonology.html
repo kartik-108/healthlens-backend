@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pulmonology | HealthLens Hospital</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+<!-- Navbar -->
+<nav class="bg-yellow-700 shadow-lg sticky top-0 z-50">
+  <div class="container mx-auto flex justify-between items-center py-4 px-6">
+    <a href="index.html" class="text-3xl font-extrabold text-white tracking-wide">
+      Health<span class="text-emerald-400">Lens</span> 🏥
+    </a>
+    <ul class="hidden md:flex space-x-8 text-white font-medium">
+      <li><a href="index.html" class="hover:text-emerald-300 transition">Home</a></li>
+      <li><a href="appointment.html" class="hover:text-emerald-300 transition">Appointment</a></li>
+      <li><a href="my-appointments.html" class="hover:text-emerald-300 transition">My Appointments</a></li>
+      <li><a href="services.html" class="hover:text-emerald-300 transition">Services</a></li>
+      <li><a href="emergency.html" class="hover:text-emerald-300 transition">Emergency</a></li>
+      <li><a href="feedback.html" class="hover:text-emerald-300 transition">Feedback</a></li>
+    </ul>
+    <div class="flex space-x-4">
+      <a href="login.html" class="px-4 py-2 rounded-lg border-2 border-emerald-400 text-emerald-400 hover:bg-emerald-400 hover:text-yellow-900 font-semibold transition">Login</a>
+      <a href="signup.html" class="px-4 py-2 rounded-lg bg-emerald-400 text-yellow-900 font-semibold shadow-md hover:shadow-lg transition">Sign Up</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="bg-orange-600 text-white py-16 text-center">
+  <h1 class="text-4xl md:text-5xl font-bold mb-4">Pulmonology Department 🫁</h1>
+  <p class="text-lg md:text-xl max-w-2xl mx-auto">
+    Specialized care for lung and respiratory health — breathing easy with expert care.
+  </p>
+</section>
+
+<!-- Department Overview -->
+<section class="container mx-auto py-12 px-6">
+  <h2 class="text-3xl font-bold mb-6">Pulmonology Department Overview</h2>
+  <p class="text-gray-700 mb-4">
+    The Pulmonology Department at HealthLens Hospital focuses on diseases and disorders of the lungs and respiratory system, including chronic obstructive pulmonary disease (COPD), asthma, pneumonia, tuberculosis, and lung cancer. Our pulmonologists offer advanced diagnostics and treatment plans for acute and chronic respiratory conditions.
+  </p>
+  <p class="text-gray-700">
+    We provide a combination of clinical expertise, modern imaging, pulmonary function testing, and interventional procedures to ensure precise diagnosis and effective treatment.
+  </p>
+</section>
+
+<!-- Department Facilities -->
+<section class="container mx-auto py-12 px-6 bg-gray-50 rounded-lg shadow-md">
+  <h2 class="text-3xl font-bold mb-6">Department Facilities 🏥</h2>
+  <ul class="list-disc ml-6 text-gray-700 space-y-2 mb-4">
+    <li>Advanced pulmonary function labs and spirometry testing.</li>
+    <li>Bronchoscopy and endoscopic lung interventions.</li>
+    <li>High-resolution imaging: CT scan, X-ray, and MRI for respiratory evaluation.</li>
+    <li>Critical care and ventilator support for severe respiratory illnesses.</li>
+    <li>Specialized programs for smoking cessation, asthma, and COPD management.</li>
+  </ul>
+</section>
+
+<!-- About Pulmonology Science -->
+<section class="container mx-auto py-12 px-6">
+  <h2 class="text-3xl font-bold mb-6">About Pulmonology Science 🌬️</h2>
+  <p class="text-gray-700 mb-4">
+    Pulmonology is the branch of medicine that deals with the respiratory system. Healthy lungs are essential for oxygen exchange, energy production, and overall well-being. Pulmonologists diagnose, treat, and manage respiratory diseases, ensuring proper breathing function and quality of life.
+  </p>
+</section>
+
+<!-- Causes of Respiratory Disorders -->
+<section class="container mx-auto py-12 px-6 bg-gray-50 rounded-lg shadow-md">
+  <h2 class="text-3xl font-bold mb-6">Causes of Respiratory Disorders ⚠️</h2>
+  <p class="text-gray-700 mb-4">
+    Respiratory problems may result from infections, allergies, smoking, environmental pollutants, genetic predisposition, or chronic conditions like asthma and COPD. Timely intervention and preventive measures are essential to maintain lung health and prevent complications.
+  </p>
+</section>
+
+<!-- Symptoms and What to Do -->
+<section class="container mx-auto py-12 px-6">
+  <h2 class="text-3xl font-bold mb-6">Symptoms and What to Do 🩺</h2>
+  <p class="text-gray-700 mb-4">
+    Symptoms include shortness of breath, persistent cough, wheezing, chest pain, fatigue, or recurrent respiratory infections. Patients experiencing these signs should consult a pulmonologist promptly. Pulmonary rehabilitation, medication, and lifestyle modifications form integral parts of treatment.
+  </p>
+</section>
+
+<!-- Treatment -->
+<section class="container mx-auto py-12 px-6 bg-gray-50 rounded-lg shadow-md">
+  <h2 class="text-3xl font-bold mb-6">Treatment 🏥</h2>
+  <p class="text-gray-700 mb-4">
+    Treatments vary depending on the condition and may include inhalers, medications, oxygen therapy, pulmonary rehabilitation, lifestyle changes, and minimally invasive procedures such as bronchoscopy. In severe cases, surgical interventions or lung transplantation may be considered.
+  </p>
+</section>
+
+<!-- Book Appointment CTA -->
+<section class="py-12 text-center">
+  <a href="appointment.html?dept=Pulmonology"
+     class="bg-yellow-500 text-white px-6 py-3 rounded-lg font-bold shadow-md hover:shadow-xl transition hover:bg-yellow-600 animate-bounce">
+    Book Appointment 🫁
+  </a>
+</section>
+
+<!-- Footer -->
+<footer class="bg-yellow-700 text-white text-center py-6 mt-10">
+  <p>&copy; 2025 HealthLens Hospital | All Rights Reserved 🏥</p>
+</footer>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const dept = params.get("dept");
+  if(dept){
+    document.getElementById("departmentSelect")?.value = dept;
+  }
+</script>
+
+</body>
+</html>
