@@ -5,9 +5,11 @@ const jwt = require("jsonwebtoken");
 // SIGNUP
 exports.signup = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    console.log("SIGNUP BODY 👉", req.body);
 
-    if (!name || !email || !password) {
+    const { username, email, password } = req.body;
+
+    if (!username || !email || !password) {
       return res.status(400).json({ message: "All fields are required" });
     }
 
@@ -19,16 +21,18 @@ exports.signup = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     await User.create({
-      name,
+      username,   // 👈 FIX
       email,
       password: hashedPassword
     });
 
     res.status(201).json({ message: "Signup successful" });
   } catch (error) {
+    console.error("🔥 SIGNUP ERROR 👉", error);
     res.status(500).json({ message: "Server error during signup" });
   }
 };
+
 
 // LOGIN
 exports.login = async (req, res) => {
@@ -60,8 +64,13 @@ exports.login = async (req, res) => {
       token
     });
   } catch (error) {
-    res.status(500).json({ message: "Server error during login" });
-  }
+  console.error("SIGNUP ERROR FULL 👉", error);
+  return res.status(500).json({
+    message: error.message,
+    stack: error.stack
+  });
+}
+
 };
 
 // PROFILE (PROTECTED)
