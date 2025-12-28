@@ -17,42 +17,15 @@
 
 <body>
 
-<!-- Navbar -->
-<nav class="bg-gradient-to-r from-blue-700 to-indigo-800 shadow-lg sticky top-0 z-50">
-  <div class="container mx-auto flex justify-between items-center py-4 px-6">
-    
-    <a href="index.html" class="text-3xl font-extrabold text-white tracking-wide font-[Montserrat]">
-      Health<span class="text-yellow-400">Lens</span>🏥
-    </a>
+<div id="navbar-container"></div>
 
-    <ul class="hidden md:flex space-x-8 text-white font-medium">
-      <li><a href="index.html" class="hover:text-yellow-300 transition">Home</a></li>
-      <li><a href="appointment.html" class="hover:text-yellow-300 transition">Appointment</a></li>
-      <li><a href="my-appointments.html" class="hover:text-yellow-300 transition">My Appointments</a></li>
-      <li><a href="services.html" class="hover:text-yellow-300 transition">Services</a></li>
-      <li><a href="emergency.html" class="hover:text-yellow-300 transition">Emergency</a></li>
-      <li><a href="feedback.html" class="hover:text-yellow-300 transition">Feedback</a></li>
-    </ul>
-
-    <div class="flex space-x-4">
-      <a href="login.html"
-         class="px-4 py-2 rounded-lg border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-blue-900 font-semibold transition">
-        Login
-      </a>
-      <a href="signup.html"
-         class="px-4 py-2 rounded-lg bg-yellow-400 text-blue-900 font-semibold shadow-md hover:shadow-lg transition">
-        Sign Up
-      </a>
-    </div>
-  </div>
-</nav>
 
 <!-- Sign Up Card -->
 <div class="flex justify-center items-center flex-grow">
   <div class="bg-white rounded-xl shadow-lg p-10 w-full max-w-md mt-12 animate-fadeInUp">
     <h2 class="text-3xl font-bold text-center mb-6 text-blue-600">Create an Account</h2>
 
-    <!-- 🔥 FIXED FORM -->
+    <!-- FIXED FORM -->
     <form id="signupForm" class="flex flex-col gap-4">
 
       <input
@@ -105,8 +78,14 @@
     </p>
   </div>
 </div>
+  <!-- COMMON FOOTER -->
+  <div id="footer-container"></div>
+  <script src="js/footer.js"></script>
 
 <!-- Custom JS -->
 <script src="js/signup.js"></script>
+  <!-- Scripts -->
+  <script src="js/navbar.js"></script>
+  <script src="js/auth-ui.js"></script>
 </body>
 </html>

@@ -1,16 +1,28 @@
-document.querySelector("form").addEventListener("submit", async (e) => {
+document.getElementById("loginForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const email = e.target.email.value;
-  const password = e.target.password.value;
+  const form = e.target;
+
+  const email = form.elements["email"].value.trim();
+  const password = form.elements["password"].value.trim();
+
+  if (!email || !password) {
+    alert("All fields are required");
+    return;
+  }
+
+  const API_BASE_URL =
+    window.location.hostname === "localhost"
+      ? "http://localhost:5000"
+      : "https://healthlens-backend-clru.onrender.com";
 
   try {
-    const res = await fetch("https://healthlens-backend-clru.onrender.com/", {
+    const res = await fetch(`${API_BASE_URL}/api/auth/login`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
       },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ email, password })
     });
 
     const data = await res.json();
@@ -20,14 +32,14 @@ document.querySelector("form").addEventListener("submit", async (e) => {
       return;
     }
 
+    // 🔥 SAVE JWT TOKEN
     localStorage.setItem("token", data.token);
-    localStorage.setItem("user", JSON.stringify(data.user));
 
-    alert("Login successful!");
-    window.location.href = "index.html";
+    alert("Login successful ✅");
+    window.location.href = "profile.html";
 
   } catch (err) {
-    alert("Server error. Try again later.");
-    console.error(err);
+    console.error("Login error:", err);
+    alert("Server error");
   }
 });

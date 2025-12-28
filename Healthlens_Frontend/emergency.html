@@ -16,36 +16,7 @@
 </head>
 
 <body class="bg-gray-100 text-gray-800 scroll-smooth">
-
-<!-- Navbar -->
-<nav class="bg-gradient-to-r from-blue-700 to-indigo-800 shadow-lg sticky top-0 z-50">
-  <div class="container mx-auto flex justify-between items-center py-4 px-6">
-    <a href="index.html" class="text-3xl font-extrabold text-white tracking-wide font-[Montserrat]">
-      Health<span class="text-red-400">Lens</span>🏥
-    </a>
-
-    <ul class="hidden md:flex space-x-8 text-white font-medium">
-      <li><a href="index.html" class="hover:text-yellow-300 transition">Home</a></li>
-      <li><a href="appointment.html" class="hover:text-yellow-300 transition">Appointment</a></li>
-      <li><a href="my-appointments.html" class="hover:text-yellow-300 transition">My Appointments</a></li>
-      <li><a href="services.html" class="hover:text-yellow-300 transition">Services</a></li>
-      <li><a href="emergency.html" class="hover:text-yellow-300 transition">Emergency</a></li>
-      <li><a href="feedback.html" class="hover:text-yellow-300 transition">Feedback</a></li>
-    </ul>
-
-    <div class="flex space-x-4">
-      <a href="login.html"
-         class="px-4 py-2 rounded-lg border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-blue-900 font-semibold transition">
-        Login
-      </a>
-      <a href="signup.html"
-         class="px-4 py-2 rounded-lg bg-yellow-400 text-blue-900 font-semibold shadow-md hover:shadow-lg transition">
-        Sign Up
-      </a>
-    </div>
-  </div>
-</nav>
-
+<div id="navbar-container"></div>
 <!-- Hero -->
 <section class="relative h-60 flex flex-col justify-center items-center text-center bg-gradient-to-r from-red-500 to-pink-600 overflow-hidden">
   <h1 class="text-4xl md:text-5xl font-bold text-white animate-fadeIn">Emergency Services</h1>
@@ -96,20 +67,18 @@
 
   </div>
 </section>
-
-<!-- Footer -->
-<footer class="bg-blue-600 text-white text-center py-6 relative">
-  <p>&copy; 2025 HealthLens Hospital | All Rights Reserved</p>
-  <a href="index.html"
-     class="absolute right-6 bottom-6 bg-yellow-400 px-3 py-2 rounded-full hover:shadow-lg transition">
-    <i class="fas fa-arrow-up"></i>
-  </a>
-</footer>
+  <!-- COMMON FOOTER -->
+  <div id="footer-container"></div>
+  <script src="js/footer.js"></script>
 
 <!-- Vanilla Tilt -->
 <script src="https://unpkg.com/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
 
 <!-- Custom JS -->
 <script src="js/emergency.js"></script>
+
+  <!-- Scripts -->
+  <script src="js/navbar.js"></script>
+  <script src="js/auth-ui.js"></script>
 </body>
 </html>
