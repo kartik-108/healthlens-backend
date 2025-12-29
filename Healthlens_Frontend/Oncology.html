@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oncology | HealthLens Hospital</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+<div id="navbar-container"></div>
+
+<!-- Hero Section -->
+<section class="bg-red-600 text-white py-16 text-center">
+  <h1 class="text-4xl md:text-5xl font-bold mb-4">Oncology Department 🎗️</h1>
+  <p class="text-lg md:text-xl max-w-2xl mx-auto">
+    Comprehensive cancer care including early detection, advanced treatment, and personalized support.
+  </p>
+</section>
+
+<!-- Oncology Department Overview -->
+<section class="container mx-auto py-12 px-6">
+  <h2 class="text-3xl font-bold mb-6">Oncology Department Overview</h2>
+  <p class="text-gray-700 mb-4">
+    The Oncology Department at HealthLens Hospital specializes in the diagnosis, treatment, and management of various types of cancers. Our multidisciplinary team of oncologists, surgeons, radiologists, and support staff ensures comprehensive care tailored to each patient. We focus on early detection, precision medicine, and compassionate support to improve outcomes and quality of life.
+  </p>
+  <p class="text-gray-700">
+    We combine state-of-the-art imaging, laboratory diagnostics, and personalized treatment plans including surgery, chemotherapy, radiation therapy, and immunotherapy. Patient education and psychosocial support are integral parts of our care.
+  </p>
+</section>
+
+<!-- Department Facilities -->
+<section class="container mx-auto py-12 px-6 bg-gray-50 rounded-lg shadow-md">
+  <h2 class="text-3xl font-bold mb-6">Department Facilities 🏥</h2>
+  <ul class="list-disc ml-6 text-gray-700 space-y-2 mb-4">
+    <li>Advanced imaging services including PET-CT, MRI, and CT scans for precise cancer detection.</li>
+    <li>State-of-the-art chemotherapy and radiation therapy units.</li>
+    <li>Robotic-assisted surgical suites for minimally invasive tumor removal.</li>
+    <li>Supportive care units including pain management, nutrition, and palliative care.</li>
+    <li>Comprehensive follow-up and survivorship programs.</li>
+  </ul>
+</section>
+
+<!-- About Oncology Science -->
+<section class="container mx-auto py-12 px-6">
+  <h2 class="text-3xl font-bold mb-6">About Oncology Science 🧬</h2>
+  <p class="text-gray-700 mb-4">
+    Oncology is the branch of medicine focused on cancer research, diagnosis, treatment, and prevention. It encompasses medical oncology, surgical oncology, and radiation oncology. Oncologists study the biology of tumors, genetic factors, and environmental causes to design effective treatment strategies. Personalized medicine ensures that therapy is tailored according to the specific type and stage of cancer.
+  </p>
+</section>
+
+<!-- Causes of Cancer -->
+<section class="container mx-auto py-12 px-6 bg-gray-50 rounded-lg shadow-md">
+  <h2 class="text-3xl font-bold mb-6">Causes of Cancer ⚠️</h2>
+  <p class="text-gray-700 mb-4">
+    Cancer can result from genetic mutations, environmental exposures, lifestyle factors such as smoking or alcohol, infections, or chronic inflammation. Certain cancers are hereditary, while others develop due to accumulated cellular damage over time. Prevention and early detection are crucial to reduce risk and improve outcomes.
+  </p>
+</section>
+
+<!-- Symptoms and What to Do -->
+<section class="container mx-auto py-12 px-6">
+  <h2 class="text-3xl font-bold mb-6">Symptoms and What to Do 🩺</h2>
+  <p class="text-gray-700 mb-4">
+    Symptoms vary depending on cancer type but may include unexplained weight loss, persistent fatigue, lumps or swelling, abnormal bleeding, or changes in skin/moles. Regular screenings and timely consultation with an oncologist are essential for early detection. Lifestyle modifications, vaccination where applicable, and healthy habits are preventive measures.
+  </p>
+</section>
+
+<!-- Treatment -->
+<section class="container mx-auto py-12 px-6 bg-gray-50 rounded-lg shadow-md">
+  <h2 class="text-3xl font-bold mb-6">Treatment 🏥</h2>
+  <p class="text-gray-700 mb-4">
+    Treatment is tailored based on cancer type, stage, and patient condition. Options include surgery, chemotherapy, radiation therapy, immunotherapy, targeted therapy, and supportive care. Multidisciplinary management ensures optimal outcomes and improved quality of life. Patient counseling, nutrition guidance, and rehabilitation are integral to comprehensive care.
+  </p>
+</section>
+
+<!-- Book Appointment CTA -->
+<section class="py-12 text-center">
+  <a href="appointment.html?dept=Oncology"
+     class="bg-red-500 text-white px-6 py-3 rounded-lg font-bold shadow-md hover:shadow-xl transition hover:bg-red-600 animate-bounce">
+    Book Appointment 🎗️
+  </a>
+</section>
+
+  <!-- COMMON FOOTER -->
+  <div id="footer-container"></div>
+  <script src="js/footer.js"></script>
+
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const dept = params.get("dept");
+  if(dept){
+    document.getElementById("departmentSelect")?.value = dept;
+  }
+</script>
+  <!-- Scripts -->
+  <script src="js/navbar.js"></script>
+  <script src="js/auth-ui.js"></script>
+</body>
+</html>

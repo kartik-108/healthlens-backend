@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | HealthLens Hospital</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+<div id="navbar-container"></div>
+
+
+<!-- Login Card -->
+<div class="flex justify-center items-center flex-grow">
+  <div class="login-card bg-white rounded-xl shadow-lg p-10 w-full max-w-md mt-12 animate-fadeInUp">
+
+    <h2 class="text-3xl font-bold text-center mb-6 text-blue-600">
+      Login to HealthLens
+    </h2>
+
+    <!-- FIXED FORM (DESIGN SAME) -->
+    <form id="loginForm" class="flex flex-col gap-4">
+
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        class="border p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+        required
+      >
+
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        class="border p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+        required
+      >
+
+      <button
+        type="submit"
+        class="bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 ripple transition">
+        Login
+      </button>
+
+    </form>
+
+    <p class="mt-4 text-gray-600 text-center text-sm">
+      Don't have an account?
+      <a href="signup.html" class="text-blue-600 hover:underline">Sign up here</a>
+    </p>
+
+  </div>
+</div>
+  <!-- COMMON FOOTER -->
+  <div id="footer-container"></div>
+  <script src="js/footer.js"></script>
+
+<!-- Custom JS -->
+<script src="js/login.js"></script>
+  <!-- Scripts -->
+  <script src="js/navbar.js"></script>
+  <script src="js/auth-ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Registration & Login</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/user.css">
+</head>
+<body>
+  <div id="navbar-container"></div>
+  <div class="container">
+    <h2>Register User</h2>
+    <form id="userForm">
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit">Register</button>
+    </form>
+
+    <h2>Login User</h2>
+    <form id="loginForm">
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+
+    <p id="message"></p>
+  </div>
+  <!-- COMMON FOOTER -->
+  <div id="footer-container"></div>
+  <script src="js/footer.js"></script>
+
+  <!-- JS -->
+  <script src="js/user.js"></script>
+  <!-- Scripts -->
+  <script src="js/navbar.js"></script>
+  <script src="js/auth-ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Appointment | HealthLens Hospital</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/appointment.css">
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+  
+  <!-- COMMON NAVBAR -->
+  <div id="navbar-container"></div>
+
+  <!-- Appointment Form -->
+<section class="container mx-auto py-12 px-6">
+  <h1 class="text-3xl font-bold text-center mb-8">Book Your Appointment</h1>
+
+  <form class="bg-white shadow-md rounded-lg p-8 max-w-2xl mx-auto space-y-6">
+    <!-- Department -->
+    <div>
+      <label class="block font-semibold mb-2">Select Department</label>
+      <select id="departmentSelect" name="department" class="w-full border rounded-lg px-4 py-2">
+        <option value="">-- Select Department --</option>
+        <option value="Cardiology">Cardiology</option>
+        <option value="Neurology">Neurology</option>
+        <option value="Pediatrics">Pediatrics</option>
+        <option value="Orthopedics">Orthopedics</option>
+        <option value="Oncology">Oncology</option>
+        <option value="Dermatology">Dermatology</option>
+        <option value="Radiology">Radiology</option>
+      </select>
+    </div>
+
+    <!-- Patient Info -->
+    <div>
+      <label class="block font-semibold mb-2">Full Name</label>
+      <input type="text" class="w-full border rounded-lg px-4 py-2" required>
+    </div>
+
+    <div>
+      <label class="block font-semibold mb-2">Email</label>
+      <input type="email" class="w-full border rounded-lg px-4 py-2" required>
+    </div>
+
+    <div>
+      <label class="block font-semibold mb-2">Phone</label>
+      <input type="tel" class="w-full border rounded-lg px-4 py-2" required>
+    </div>
+
+    <!-- Submit -->
+    <button type="submit"
+            class="bg-yellow-400 text-blue-900 px-6 py-3 rounded-lg font-bold shadow-md hover:shadow-lg transition">
+      Confirm Appointment
+    </button>
+  </form>
+</section>
+
+  <!-- COMMON FOOTER -->
+  <div id="footer-container"></div>
+<div id="toast-container"
+     class="fixed top-5 right-5 space-y-3 z-50"></div>
+
+<!-- Page JS -->
+<script src="js/appointment.js"></script>
+
+<!-- COMMON NAVBAR + AUTH -->
+<script src="js/navbar.js"></script>
+<script src="js/auth-ui.js"></script>
+
+<script src="js/footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Departments | HealthLens Hospital</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/services.css" />
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+<div id="navbar-container"></div>
+
+
+<!-- Hero Section -->
+<section class="bg-blue-600 text-white py-20 text-center relative overflow-hidden">
+  <div class="container mx-auto relative z-10">
+    <h1 class="text-5xl font-bold mb-4">Our Departments 🏥</h1>
+    <p class="text-lg max-w-2xl mx-auto">
+      Explore the specialized care we provide across various medical fields at HealthLens Hospital 🏥.
+    </p>
+  </div>
+  <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-blue-700 via-blue-500 to-indigo-700 opacity-40"></div>
+</section>
+
+<!-- Why Choose -->
+<section class="container mx-auto py-16 px-6">
+  <h2 class="text-3xl font-bold text-center mb-12">Why Choose HealthLens? 🏥</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+    <div class="bg-white rounded-lg shadow-lg p-8 hover:scale-105 transition">
+      <h3 class="text-xl font-semibold mb-4">Expert Doctors 👨‍⚕️</h3>
+      <p>Highly qualified and experienced medical professionals to ensure the best care.</p>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-8 hover:scale-105 transition">
+      <h3 class="text-xl font-semibold mb-4">Advanced Technology 🧪</h3>
+      <p>State-of-the-art equipment for accurate diagnosis and effective treatment.</p>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-8 hover:scale-105 transition">
+      <h3 class="text-xl font-semibold mb-4">24/7 Care ⏰</h3>
+      <p>Round-the-clock medical services and emergency support for patients.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Departments Cards -->
+<section class="container mx-auto py-12 px-6">
+  <h2 class="text-3xl font-bold text-center mb-12">Our Departments 🏥</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    <!-- Function to create each card with fixed button -->
+    <template id="card-template">
+      <div class="relative bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 shadow-md p-6 rounded-lg hover:shadow-xl transition transform hover:-translate-y-2 flex flex-col">
+        <h3 class="text-xl font-semibold mb-2">Department Name</h3>
+        <p class="text-gray-800 mb-6">Short description...</p>
+        <a href="#" class="mt-auto self-end bg-blue-500 text-white px-5 py-2 rounded-lg font-semibold shadow hover:shadow-lg transition hover:bg-blue-600 animate-bounce">View Details 🩺</a>
+      </div>
+    </template>
+
+    <!-- Card 1: Cardiology -->
+    <div class="relative bg-gradient-to-r from-emerald-200 via-emerald-300 to-emerald-200 shadow-md p-6 rounded-lg hover:shadow-xl transition transform hover:-translate-y-2 flex flex-col">
+      <h3 class="text-xl font-semibold mb-2">❤️ Cardiology</h3>
+      <p class="text-gray-800 mb-6">Comprehensive heart care and advanced treatments.</p>
+      <a href="cardiology.html" class="mt-auto self-end bg-emerald-500 text-white px-5 py-2 rounded-lg font-semibold shadow hover:shadow-lg transition hover:bg-emerald-600 animate-bounce">View Details 🩺</a>
+    </div>
+
+    <!-- Card 2: Neurology -->
+    <div class="relative bg-gradient-to-r from-indigo-200 via-indigo-300 to-indigo-200 shadow-md p-6 rounded-lg hover:shadow-xl transition transform hover:-translate-y-2 flex flex-col">
+      <h3 class="text-xl font-semibold mb-2">🧠 Neurology</h3>
+      <p class="text-gray-800 mb-6">Specialized care for brain and nervous system disorders.</p>
+      <a href="neurology.html" class="mt-auto self-end bg-indigo-500 text-white px-5 py-2 rounded-lg font-semibold shadow hover:shadow-lg transition hover:bg-indigo-600 animate-bounce">View Details 🩺</a>
+    </div>
+
+    <!-- Card 3: Pediatrics -->
+    <div class="relative bg-gradient-to-r from-pink-200 via-pink-300 to-pink-200 shadow-md p-6 rounded-lg hover:shadow-xl transition transform hover:-translate-y-2 flex flex-col">
+      <h3 class="text-xl font-semibold mb-2">👶 Pediatrics</h3>
+      <p class="text-gray-800 mb-6">Advanced healthcare for infants, children, and adolescents.</p>
+      <a href="pediatrics.html" class="mt-auto self-end bg-pink-500 text-white px-5 py-2 rounded-lg font-semibold shadow hover:shadow-lg transition hover:bg-pink-600 animate-bounce">View Details 🩺</a>
+    </div>
+
+    <!-- Card 4: Orthopedics -->
+    <div class="relative bg-gradient-to-r from-yellow-200 via-yellow-300 to-yellow-200 shadow-md p-6 rounded-lg hover:shadow-xl transition transform hover:-translate-y-2 flex flex-col">
+      <h3 class="text-xl font-semibold mb-2">🦴 Orthopedics</h3>
+      <p class="text-gray-800 mb-6">Comprehensive bone, joint, and musculoskeletal care.</p>
+      <a href="orthopedics.html" class="mt-auto self-end bg-yellow-600 text-white px-5 py-2 rounded-lg font-semibold shadow hover:shadow-lg transition hover:bg-yellow-700 animate-bounce">View Details 🩺</a>
+    </div>
+
+    <!-- Card 5: Oncology -->
+    <div class="relative bg-gradient-to-r from-red-200 via-red-300 to-red-200 shadow-md p-6 rounded-lg hover:shadow-xl transition transform hover:-translate-y-2 flex flex-col">
+      <h3 class="text-xl font-semibold mb-2">💉 Oncology</h3>
+      <p class="text-gray-800 mb-6">Advanced cancer care and treatment services.</p>
+      <a href="oncology.html" class="mt-auto self-end bg-red-500 text-white px-5 py-2 rounded-lg font-semibold shadow hover:shadow-lg transition hover:bg-red-600 animate-bounce">View Details 🩺</a>
+    </div>
+
+    <!-- Card 6: Dermatology -->
+    <div class="relative bg-gradient-to-r from-purple-200 via-purple-300 to-purple-200 shadow-md p-6 rounded-lg hover:shadow-xl transition transform hover:-translate-y-2 flex flex-col">
+      <h3 class="text-xl font-semibold mb-2">🧴 Dermatology</h3>
+      <p class="text-gray-800 mb-6">Skin care, cosmetic treatments, and advanced dermatology solutions.</p>
+      <a href="dermatology.html" class="mt-auto self-end bg-purple-500 text-white px-5 py-2 rounded-lg font-semibold shadow hover:shadow-lg transition hover:bg-purple-600 animate-bounce">View Details 🩺</a>
+    </div>
+
+    <!-- Card 7: Radiology -->
+    <div class="relative bg-gradient-to-r from-teal-200 via-teal-300 to-teal-200 shadow-md p-6 rounded-lg hover:shadow-xl transition transform hover:-translate-y-2 flex flex-col">
+      <h3 class="text-xl font-semibold mb-2">🩻 Radiology</h3>
+      <p class="text-gray-800 mb-6">State-of-the-art imaging and diagnostic services.</p>
+      <a href="radiology.html" class="mt-auto self-end bg-teal-500 text-white px-5 py-2 rounded-lg font-semibold shadow hover:shadow-lg transition hover:bg-teal-600 animate-bounce">View Details 🩺</a>
+    </div>
+
+    <!-- Card 8: Nephrology -->
+    <div class="relative bg-gradient-to-r from-lime-200 via-lime-300 to-lime-200 shadow-md p-6 rounded-lg hover:shadow-xl transition transform hover:-translate-y-2 flex flex-col">
+      <h3 class="text-xl font-semibold mb-2">🫀 Nephrology</h3>
+      <p class="text-gray-800 mb-6">Kidney care, dialysis, and advanced treatments.</p>
+      <a href="nephrology.html" class="mt-auto self-end bg-lime-500 text-white px-5 py-2 rounded-lg font-semibold shadow hover:shadow-lg transition hover:bg-lime-600 animate-bounce">View Details 🩺</a>
+    </div>
+
+    <!-- Card 9: Urology -->
+    <div class="relative bg-gradient-to-r from-cyan-200 via-cyan-300 to-cyan-200 shadow-md p-6 rounded-lg hover:shadow-xl transition transform hover:-translate-y-2 flex flex-col">
+      <h3 class="text-xl font-semibold mb-2">🚻 Urology</h3>
+      <p class="text-gray-800 mb-6">Comprehensive urinary tract and male reproductive care.</p>
+      <a href="urology.html" class="mt-auto self-end bg-cyan-500 text-white px-5 py-2 rounded-lg font-semibold shadow hover:shadow-lg transition hover:bg-cyan-600 animate-bounce">View Details 🩺</a>
+    </div>
+
+    <!-- Card 10: Gastroenterology -->
+    <div class="relative bg-gradient-to-r from-orange-200 via-orange-300 to-orange-200 shadow-md p-6 rounded-lg hover:shadow-xl transition transform hover:-translate-y-2 flex flex-col">
+      <h3 class="text-xl font-semibold mb-2">🫁 Gastroenterology</h3>
+      <p class="text-gray-800 mb-6">Digestive system, liver, and pancreas care.</p>
+      <a href="gastroenterology.html" class="mt-auto self-end bg-orange-500 text-white px-5 py-2 rounded-lg font-semibold shadow hover:shadow-lg transition hover:bg-orange-600 animate-bounce">View Details 🩺</a>
+    </div>
+
+    <!-- Card 11: Pulmonology -->
+    <div class="relative bg-gradient-to-r from-pink-200 via-pink-300 to-pink-200 shadow-md p-6 rounded-lg hover:shadow-xl transition transform hover:-translate-y-2 flex flex-col">
+      <h3 class="text-xl font-semibold mb-2">🌬️ Pulmonology</h3>
+      <p class="text-gray-800 mb-6">Lung care, respiratory treatments, and advanced therapies.</p>
+      <a href="pulmonology.html" class="mt-auto self-end bg-pink-500 text-white px-5 py-2 rounded-lg font-semibold shadow hover:shadow-lg transition hover:bg-pink-600 animate-bounce">View Details 🩺</a>
+    </div>
+
+    <!-- Card 12: ENT -->
+    <div class="relative bg-gradient-to-r from-purple-200 via-purple-300 to-purple-200 shadow-md p-6 rounded-lg hover:shadow-xl transition transform hover:-translate-y-2 flex flex-col">
+      <h3 class="text-xl font-semibold mb-2">👂 ENT</h3>
+      <p class="text-gray-800 mb-6">Ear, nose, and throat care with modern treatments.</p>
+      <a href="ent.html" class="mt-auto self-end bg-purple-500 text-white px-5 py-2 rounded-lg font-semibold shadow hover:shadow-lg transition hover:bg-purple-600 animate-bounce">View Details 🩺</a>
+    </div>
+
+    <!-- Card 13: Ophthalmology -->
+    <div class="relative bg-gradient-to-r from-yellow-200 via-yellow-300 to-yellow-200 shadow-md p-6 rounded-lg hover:shadow-xl transition transform hover:-translate-y-2 flex flex-col">
+      <h3 class="text-xl font-semibold mb-2">👁️ Ophthalmology</h3>
+      <p class="text-gray-800 mb-6">Eye care, vision correction, and surgical treatments.</p>
+      <a href="ophthalmology.html" class="mt-auto self-end bg-yellow-600 text-white px-5 py-2 rounded-lg font-semibold shadow hover:shadow-lg transition hover:bg-yellow-700 animate-bounce">View Details 🩺</a>
+    </div>
+
+    <!-- Card 14: Gynecology -->
+    <div class="relative bg-gradient-to-r from-pink-200 via-pink-300 to-pink-200 shadow-md p-6 rounded-lg hover:shadow-xl transition transform hover:-translate-y-2 flex flex-col">
+      <h3 class="text-xl font-semibold mb-2">👩‍⚕️ Gynecology</h3>
+      <p class="text-gray-800 mb-6">Women's health, prenatal, and reproductive care.</p>
+      <a href="gynecology.html" class="mt-auto self-end bg-pink-500 text-white px-5 py-2 rounded-lg font-semibold shadow hover:shadow-lg transition hover:bg-pink-600 animate-bounce">View Details 🩺</a>
+    </div>
+
+    <!-- Card 15: Psychiatry -->
+    <div class="relative bg-gradient-to-r from-indigo-200 via-indigo-300 to-indigo-200 shadow-md p-6 rounded-lg hover:shadow-xl transition transform hover:-translate-y-2 flex flex-col">
+      <h3 class="text-xl font-semibold mb-2">🧠 Psychiatry</h3>
+      <p class="text-gray-800 mb-6">Mental health care, counseling, and therapies.</p>
+      <a href="psychiatry.html" class="mt-auto self-end bg-indigo-500 text-white px-5 py-2 rounded-lg font-semibold shadow hover:shadow-lg transition hover:bg-indigo-600 animate-bounce">View Details 🩺</a>
+    </div>
+
+  </div>
+</section>
+
+  <!-- COMMON FOOTER -->
+  <div id="footer-container"></div>
+  <script src="js/footer.js"></script>
+
+
+<!-- Custom JS -->
+<script src="js/services.js"></script>
+  <!-- Scripts -->
+  <script src="js/navbar.js"></script>
+  <script src="js/auth-ui.js"></script>
+</body>
+</html>
