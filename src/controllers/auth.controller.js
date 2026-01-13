@@ -2,7 +2,7 @@ const User = require("../models/user");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-// SIGNUP
+// ===================== SIGNUP =====================
 exports.signup = async (req, res) => {
   try {
     console.log("SIGNUP BODY 👉", req.body);
@@ -21,7 +21,7 @@ exports.signup = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     await User.create({
-      username,   // 👈 FIX
+      username,
       email,
       password: hashedPassword
     });
@@ -33,8 +33,7 @@ exports.signup = async (req, res) => {
   }
 };
 
-
-// LOGIN
+// ===================== LOGIN =====================
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -64,21 +63,49 @@ exports.login = async (req, res) => {
       token
     });
   } catch (error) {
-  console.error("SIGNUP ERROR FULL 👉", error);
-  return res.status(500).json({
-    message: error.message,
-    stack: error.stack
-  });
-}
-
+    console.error("LOGIN ERROR 👉", error);
+    return res.status(500).json({
+      message: error.message,
+      stack: error.stack
+    });
+  }
 };
 
-// PROFILE (PROTECTED)
+// ===================== GET PROFILE (PROTECTED) =====================
 exports.profile = async (req, res) => {
   try {
     const user = await User.findById(req.userId).select("-password");
     res.json(user);
   } catch (error) {
     res.status(500).json({ message: "Failed to fetch profile" });
+  }
+};
+
+// ===================== UPDATE PROFILE (NEW) =====================
+exports.updateProfile = async (req, res) => {
+  try {
+    const userId = req.userId;
+
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      {
+        $set: {
+          phone: req.body.phone,
+          gender: req.body.gender,
+          dob: req.body.dob,
+          bloodGroup: req.body.bloodGroup,
+
+          address: req.body.address,
+          emergencyContact: req.body.emergencyContact,
+          medical: req.body.medical
+        }
+      },
+      { new: true }
+    ).select("-password");
+
+    res.json(updatedUser);
+  } catch (error) {
+    console.error("PROFILE UPDATE ERROR 👉", error);
+    res.status(500).json({ message: "Profile update failed" });
   }
 };
