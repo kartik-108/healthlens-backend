@@ -15,6 +15,10 @@ app.use(express.json());
 const authRoutes = require("./src/routes/auth.routes");
 app.use("/api/auth", authRoutes);
 // 🔹 Test route
+// Root route
+app.get("/", (req, res) => {
+  res.send("HealthLens Backend is Running 🚀");
+});
 app.get("/api", (req, res) => {
   res.send("HealthLens Backend Running 🚀");
 });
