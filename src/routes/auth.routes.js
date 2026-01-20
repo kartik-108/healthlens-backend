@@ -15,5 +15,6 @@ router.post("/login", login);
 
 // PROTECTED
 router.get("/profile", authMiddleware, profile);
+router.put("/profile", authMiddleware, require("../controllers/user.controller").updateProfile);
 
 module.exports = router;
