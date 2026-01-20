@@ -14,6 +14,8 @@ app.use(express.json());
 // 🔹 Routes
 const authRoutes = require("./src/routes/auth.routes");
 app.use("/api/auth", authRoutes);
+const userRoutes = require("./src/routes/user.routes");
+app.use("/api/users", userRoutes);
 // 🔹 Test route
 app.get("/api", (req, res) => {
   res.send("HealthLens Backend Running 🚀");

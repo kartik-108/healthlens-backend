@@ -14,7 +14,6 @@ const authMiddleware = (req, res, next) => {
     // Token verify
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-    // ✅ IMPORTANT: controller isi ko use kar raha hai
     req.userId = decoded.id;
 
     next();

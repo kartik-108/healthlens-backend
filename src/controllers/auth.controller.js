@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 // SIGNUP
 exports.signup = async (req, res) => {
   try {
-    console.log("SIGNUP BODY 👉", req.body);
+    console.log("SIGNUP BODY", req.body);
 
     const { username, email, password } = req.body;
 
@@ -21,14 +21,14 @@ exports.signup = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     await User.create({
-      username,   // 👈 FIX
+      username,
       email,
       password: hashedPassword
     });
 
     res.status(201).json({ message: "Signup successful" });
   } catch (error) {
-    console.error("🔥 SIGNUP ERROR 👉", error);
+    console.error(" SIGNUP ERROR ", error);
     res.status(500).json({ message: "Server error during signup" });
   }
 };
