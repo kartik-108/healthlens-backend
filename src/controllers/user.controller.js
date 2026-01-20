@@ -3,8 +3,9 @@ const User = require('../models/user');
 // Update user profile
 exports.updateProfile = async (req, res) => {
   try {
-    const userId = req.user.id; // from auth middleware
-    
+        console.log('Request body:', req.body);
+    console.log('User ID:', req.userId);
+    const userId = req.userId; // from auth middleware    
     const {
       phoneNumber,
       gender,
