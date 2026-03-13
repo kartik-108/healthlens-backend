@@ -1,82 +1,90 @@
 const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema({
-  username: {
-    type: String,
-    required: true
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true
-  },
-  password: {
-    type: String,
-    required: true
-  },
-    phoneNumber: {
-    type: String,
-    required: true
-  },
-  gender: {
-    type: String,
-    enum: ['Male', 'Female', 'Other'],
-    required: true
-  },
-  dateOfBirth: {
-    type: Date,
-    required: true
-  },
-  bloodGroup: {
-    type: String,
-    required: true
-  },
-  addressLine1: {
-    type: String,
-    required: true
-  },
-  city: {
-    type: String,
-    required: true
-  },
-  state: {
-    type: String,
-    required: true
-  },
-  pincode: {
-    type: String,
-    required: true
-  },
-  emergencyContactName: {
-    type: String,
-    required: true
-  },
-  emergencyContactNumber: {
-    type: String,
-    required: true
-  },
-  height: {
-    type: Number,
-    required: false
-  },
-  weight: {
-    type: Number,
-    required: false
-  },
-  allergies: {
-    drug: { type: Boolean, default: false },
-    food: { type: Boolean, default: false },
-    dust: { type: Boolean, default: false },
-    none: { type: Boolean, default: false }
-  },
-  medicalConditions: {
-    diabetes: { type: Boolean, default: false },
-    asthma: { type: Boolean, default: false },
-    heartDisease: { type: Boolean, default: false },
-    highBP: { type: Boolean, default: false },
-    thyroid: { type: Boolean, default: false },
-    none: { type: Boolean, default: false }
-  }
+const emergencyContactSchema = new mongoose.Schema({
+  name: String,
+  relation: String,
+  phone: String
 });
+
+const wearableSchema = new mongoose.Schema({
+  deviceName: String,
+  deviceId: String,
+  heartRate: Number,
+  spo2: Number,
+  lastSync: Date
+});
+
+const locationSchema = new mongoose.Schema({
+  latitude: Number,
+  longitude: Number,
+  lastUpdated: Date
+});
+
+const medicalSchema = new mongoose.Schema({
+  allergies: [String],
+  diseases: [String],
+  medications: [String]
+});
+
+const userSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true
+    },
+
+    email: {
+      type: String,
+      required: true,
+      unique: true
+    },
+
+    password: {
+      type: String,
+      required: true
+    },
+
+    phoneNumber: String,
+
+    gender: String,
+
+    dateOfBirth: Date,
+
+    bloodGroup: String,
+
+    age: Number,
+
+    addressLine1: String,
+
+    city: String,
+
+    state: String,
+
+    pincode: String,
+
+    height: Number,
+
+    weight: Number,
+
+    emergencyContactName: String,
+
+    emergencyContactNumber: String,
+
+    allergies: [String],
+
+    medicalConditions: [String],
+
+    familyMember: emergencyContactSchema,
+
+    emergencyContact: emergencyContactSchema,
+
+    wearableDevice: wearableSchema,
+
+    location: locationSchema,
+
+    medicalInfo: medicalSchema
+  },
+  { timestamps: true }
+);
 
 module.exports = mongoose.model("User", userSchema);

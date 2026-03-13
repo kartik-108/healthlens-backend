@@ -64,7 +64,7 @@ exports.login = async (req, res) => {
       token
     });
   } catch (error) {
-  console.error("SIGNUP ERROR FULL 👉", error);
+  console.error("SIGNUP ERROR FULL", error);
   return res.status(500).json({
     message: error.message,
     stack: error.stack

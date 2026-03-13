@@ -3,7 +3,6 @@ const jwt = require("jsonwebtoken");
 const authMiddleware = (req, res, next) => {
   const authHeader = req.headers.authorization;
 
-  // Token present hai ya nahi
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
     return res.status(401).json({ message: "No token provided" });
   }
@@ -18,7 +17,7 @@ const authMiddleware = (req, res, next) => {
 
     next();
   } catch (error) {
-    console.error("AUTH MIDDLEWARE ERROR 👉", error);
+    console.error("AUTH MIDDLEWARE ERROR", error);
     return res.status(401).json({ message: "Invalid or expired token" });
   }
 };

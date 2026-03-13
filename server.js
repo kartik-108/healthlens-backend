@@ -3,10 +3,13 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const path = require("path");
 const connectDB = require("./src/config/db");
+const sosRoutes = require("./routes/sos.routes");
+
+app.use("/api/sos", sosRoutes);
 dotenv.config();
 // 🔹 DB connect
 connectDB();
-// 🔹 App init (VERY IMPORTANT: sabse pehle)
+// 🔹 App init
 const app = express();
 // 🔹 Middlewares
 app.use(cors());
@@ -25,7 +28,7 @@ app.get("/api", (req, res) => {
 });
 // 🔹 Serve frontend
 app.use(express.static(path.join(__dirname, "Healthlens_Frontend")));
-// 🔹 Server start (ALWAYS AT END)
+// 🔹 Server start
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
