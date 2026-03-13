@@ -50,3 +50,6 @@ const authMiddleware = (req, res, next) => {
 };
 
 module.exports = authMiddleware;
+console.log("TOKEN:", token);
+console.log("SECRET:", process.env.JWT_SECRET);
+console.log("DECODED:", decoded);
