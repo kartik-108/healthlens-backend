@@ -32,7 +32,11 @@ const authMiddleware = (req, res, next) => {
     }
 
     // 5️⃣ Verify token
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(
+      token,
+      process.env.JWT_SECRET || "healthlens_secret"
+    );
+
 
     // 6️⃣ Validate payload
     if (!decoded.id) {
