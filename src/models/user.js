@@ -1,31 +1,93 @@
 const mongoose = require("mongoose");
 
+
+// ---------------- EMERGENCY CONTACT ----------------
 const emergencyContactSchema = new mongoose.Schema({
-  name: String,
-  relation: String,
-  phone: String
+  name: {
+    type: String
+  },
+  relation: {
+    type: String
+  },
+  phone: {
+    type: String
+  }
 });
 
+
+// ---------------- WEARABLE DEVICE ----------------
 const wearableSchema = new mongoose.Schema({
-  deviceName: String,
-  deviceId: String,
-  heartRate: Number,
-  spo2: Number,
-  lastSync: Date
+  deviceName: {
+    type: String
+  },
+  deviceId: {
+    type: String
+  },
+  heartRate: {
+    type: Number
+  },
+  spo2: {
+    type: Number
+  },
+  steps: {
+    type: Number
+  },
+  temperature: {
+    type: Number
+  },
+  lastSync: {
+    type: Date,
+    default: Date.now
+  }
 });
 
+
+// ---------------- GPS LOCATION ----------------
 const locationSchema = new mongoose.Schema({
-  latitude: Number,
-  longitude: Number,
-  lastUpdated: Date
+  latitude: {
+    type: Number
+  },
+  longitude: {
+    type: Number
+  },
+  accuracy: {
+    type: Number
+  },
+  address: {
+    type: String
+  },
+  lastUpdated: {
+    type: Date,
+    default: Date.now
+  }
 });
 
+
+// ---------------- MEDICAL INFORMATION ----------------
 const medicalSchema = new mongoose.Schema({
   allergies: [String],
   diseases: [String],
-  medications: [String]
+  medications: [String],
+  bloodPressure: String,
+  diabetes: Boolean,
+  heartCondition: Boolean
 });
 
+
+// ---------------- MEDICAL REPORT HISTORY ----------------
+const reportSchema = new mongoose.Schema({
+  fileName: String,
+  uploadedAt: {
+    type: Date,
+    default: Date.now
+  },
+  extractedText: String,
+  aiSummary: String,
+  aiSuggestions: String
+});
+
+
+// ---------------- USER SCHEMA ----------------
 const userSchema = new mongoose.Schema(
   {
     name: {
@@ -44,47 +106,70 @@ const userSchema = new mongoose.Schema(
       required: true
     },
 
-    phoneNumber: String,
+    phoneNumber: {
+      type: String
+    },
 
-    gender: String,
+    gender: {
+      type: String
+    },
 
-    dateOfBirth: Date,
+    dateOfBirth: {
+      type: Date
+    },
 
-    bloodGroup: String,
+    age: {
+      type: Number
+    },
 
-    age: Number,
+    bloodGroup: {
+      type: String
+    },
 
-    addressLine1: String,
 
-    city: String,
+    // ---------------- ADDRESS ----------------
+    address: {
+      addressLine1: String,
+      city: String,
+      state: String,
+      pincode: String
+    },
 
-    state: String,
 
-    pincode: String,
+    // ---------------- BODY METRICS ----------------
+    bodyMetrics: {
+      height: Number,
+      weight: Number,
+      bmi: Number
+    },
 
-    height: Number,
 
-    weight: Number,
-
-    emergencyContactName: String,
-
-    emergencyContactNumber: String,
-
-    allergies: [String],
-
-    medicalConditions: [String],
-
+    // ---------------- EMERGENCY CONTACTS ----------------
     familyMember: emergencyContactSchema,
 
     emergencyContact: emergencyContactSchema,
 
+
+    // ---------------- WEARABLE DEVICE ----------------
     wearableDevice: wearableSchema,
 
+
+    // ---------------- LOCATION ----------------
     location: locationSchema,
 
-    medicalInfo: medicalSchema
+
+    // ---------------- MEDICAL HISTORY ----------------
+    medicalInfo: medicalSchema,
+
+
+    // ---------------- REPORT HISTORY ----------------
+    reports: [reportSchema]
+
   },
-  { timestamps: true }
+  {
+    timestamps: true
+  }
 );
+
 
 module.exports = mongoose.model("User", userSchema);
