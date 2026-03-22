@@ -8,14 +8,19 @@ const sendEmail = async (appointment) => {
       return;
     }
 
-    // 📧 Transporter
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
-      }
-    });
+const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false, // TLS
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
+  },
+  tls: {
+    rejectUnauthorized: false
+  },
+  family: 4 // 🔥 FORCE IPv4 (MAIN FIX)
+});
 
     // 🔗 Links
     const approveLink = `${process.env.BASE_URL}/api/appointments/approve/${appointment._id}`;
