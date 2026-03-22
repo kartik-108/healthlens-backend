@@ -23,7 +23,7 @@ const bookAppointment = async (req, res) => {
 
     // ✅ Email (safe - crash nahi karega)
     try {
-      await sendEmail(appointment);
+      sendEmail(appointment);
       console.log("✅ Email sent successfully");
     } catch (err) {
       console.log("❌ Email failed:", err.message);
