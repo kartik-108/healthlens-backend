@@ -1,4 +1,3 @@
-const fetch = require("node-fetch");
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -8,7 +7,7 @@ const app = express();
 
 // ---------------- MIDDLEWARE ----------------
 app.use(cors({
-  origin: "*", // production me apna domain daal dena
+  origin: "*",
   methods: ["GET", "POST", "PUT", "DELETE"]
 }));
 
@@ -23,10 +22,12 @@ app.get("/", (req, res) => {
 });
 
 
-// ================= 🏥 HOSPITALS ROUTE (FIXED) =================
+// ================= 🏥 HOSPITALS ROUTE =================
 app.post("/hospitals", async (req, res) => {
 
   const { lat, lon, radius } = req.body;
+
+  console.log("📍 Request:", lat, lon, radius);
 
   if (!lat || !lon || !radius) {
     return res.status(400).json({ error: "Missing parameters" });
@@ -53,18 +54,19 @@ out center;
 
     const text = await response.text();
 
-    // ✅ Safe JSON parse
+    console.log("📡 Overpass response:", text.slice(0, 200));
+
     try {
       const data = JSON.parse(text);
       return res.json(data);
     } catch (err) {
-      console.error("❌ Overpass returned non-JSON:", text);
-      return res.status(500).json({ error: "Invalid response from Overpass API" });
+      console.error("❌ Not JSON:", text);
+      return res.status(500).json({ error: "Invalid Overpass response" });
     }
 
   } catch (err) {
-    console.error("❌ Overpass fetch error:", err);
-    return res.status(500).json({ error: "Failed to fetch hospitals" });
+    console.error("❌ Fetch error:", err);
+    return res.status(500).json({ error: "Server error" });
   }
 });
 
@@ -89,7 +91,7 @@ app.use("/api/appointments", appointmentRoutes);
 const connectDB = async () => {
   try {
     if (!process.env.MONGO_URI) {
-      throw new Error("MONGO_URI is not defined in environment variables");
+      throw new Error("MONGO_URI is not defined");
     }
 
     await mongoose.connect(process.env.MONGO_URI);
@@ -103,7 +105,7 @@ const connectDB = async () => {
     });
 
   } catch (error) {
-    console.error("❌ MongoDB connection failed:", error.message);
+    console.error("❌ DB Error:", error.message);
     process.exit(1);
   }
 };
