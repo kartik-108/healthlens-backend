@@ -8,7 +8,7 @@ const app = express();
 
 // ---------------- MIDDLEWARE ----------------
 app.use(cors({
-  origin: "*", // production me specific domain use karna
+  origin: "*", // production me apna domain daal dena
   methods: ["GET", "POST", "PUT", "DELETE"]
 }));
 
@@ -23,8 +23,7 @@ app.get("/", (req, res) => {
 });
 
 
-// ================= 🔥 NEW ROUTE (IMPORTANT) =================
-// 🏥 Fetch hospitals from Overpass API
+// ================= 🏥 HOSPITALS ROUTE (FIXED) =================
 app.post("/hospitals", async (req, res) => {
 
   const { lat, lon, radius } = req.body;
@@ -34,7 +33,7 @@ app.post("/hospitals", async (req, res) => {
   }
 
   const query = `
-[out:json][timeout:15];
+[out:json][timeout:25];
 (
   node["amenity"="hospital"](around:${radius},${lat},${lon});
   way["amenity"="hospital"](around:${radius},${lat},${lon});
@@ -46,20 +45,26 @@ out center;
   try {
     const response = await fetch("https://overpass-api.de/api/interpreter", {
       method: "POST",
+      headers: {
+        "Content-Type": "text/plain"
+      },
       body: query
     });
 
-    if (!response.ok) {
-      throw new Error("Overpass API failed");
+    const text = await response.text();
+
+    // ✅ Safe JSON parse
+    try {
+      const data = JSON.parse(text);
+      return res.json(data);
+    } catch (err) {
+      console.error("❌ Overpass returned non-JSON:", text);
+      return res.status(500).json({ error: "Invalid response from Overpass API" });
     }
 
-    const data = await response.json();
-
-    res.json(data);
-
   } catch (err) {
-    console.error("❌ Overpass Error:", err.message);
-    res.status(500).json({ error: "Failed to fetch hospitals" });
+    console.error("❌ Overpass fetch error:", err);
+    return res.status(500).json({ error: "Failed to fetch hospitals" });
   }
 });
 
@@ -108,7 +113,7 @@ connectDB();
 
 // ---------------- GLOBAL ERROR HANDLER ----------------
 app.use((err, req, res, next) => {
-  console.error(err.stack);
+  console.error("❌ Global Error:", err.stack);
 
   res.status(500).json({
     message: "Internal Server Error",
