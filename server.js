@@ -44,23 +44,26 @@ out center;
 `;
 
   try {
+    // FIX: Added User-Agent and updated Content-Type to avoid 406 error
     const response = await fetch("https://overpass-api.de/api/interpreter", {
       method: "POST",
       headers: {
-        "Content-Type": "text/plain"
+        "Accept": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "User-Agent": "HealthLensApp/1.0 (contact: support@healthlens.com)" 
       },
-      body: query
+      body: `data=${encodeURIComponent(query)}`
     });
 
     const text = await response.text();
 
-    console.log("📡 Overpass response:", text.slice(0, 200));
+    console.log("📡 Overpass response status:", response.status);
 
     try {
       const data = JSON.parse(text);
       return res.json(data);
     } catch (err) {
-      console.error("❌ Not JSON:", text);
+      console.error("❌ Not JSON response from Overpass:", text.slice(0, 500));
       return res.status(500).json({ error: "Invalid Overpass response" });
     }
 
